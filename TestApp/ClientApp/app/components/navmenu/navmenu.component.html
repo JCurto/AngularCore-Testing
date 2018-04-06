@@ -1,0 +1,31 @@
+<div class='main-nav'>
+    <div class='navbar navbar-inverse'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' [routerLink]="['/home']">Menu</a>
+        </div>
+        <div class='clearfix'></div>
+        <div class='navbar-collapse collapse fadeStyle'>
+            <ul class='nav navbar-nav'>
+                <li *ngFor="let menuItem of menuItems" [routerLinkActive]="['link-active']">
+                    <ng-container *ngIf="menuItem.routerParams; then routerParams; else noRouterParams"></ng-container>
+                    <ng-template #routerParams>
+                        <a [routerLink]="[menuItem.routerLink, menuItem.routerParams]">
+                            <span class="{{ menuItem.class }}"></span> {{ menuItem.name }}
+                        </a>
+                    </ng-template>
+                    <ng-template #noRouterParams>
+                        <a [routerLink]="[menuItem.routerLink]">
+                            <span class="{{ menuItem.class }}"></span> {{ menuItem.name }}
+                        </a>
+                    </ng-template>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
