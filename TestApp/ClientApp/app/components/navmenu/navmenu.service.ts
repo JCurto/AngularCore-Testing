@@ -61,7 +61,7 @@ export class NavMenuService implements OnInit {
     private setHomeItems() {
         this.$menuItems.next([
             {
-                name: 'Monsters Library',
+                name: 'Monster Library',
                 routerLink: '/monster-library',
                 class: 'glyphicon glyphicon-education'
             },
