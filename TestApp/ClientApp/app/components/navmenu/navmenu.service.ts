@@ -21,7 +21,7 @@ export class NavMenuService implements OnInit {
         }
 
         switch (linkedCategory) {
-            case 'monster': {
+            case 'monster-library': {
                 this.$menuItems.next([
                     {
                         name: '<< Home',
@@ -30,24 +30,24 @@ export class NavMenuService implements OnInit {
                     },
                     {
                         name: 'Item 1',
-                        routerLink: '/monster',
+                        routerLink: '/monster-library',
                         routerParams: 1,
                         class: 'glyphicon glyphicon-th-list'
                     },
                     {
                         name: 'Item 2',
-                        routerLink: '/monster',
+                        routerLink: '/monster-library',
                         routerParams: 2,
                         class: 'glyphicon glyphicon-th-list'
                     },
                     {
                         name: 'Item 3',
-                        routerLink: '/monster',
+                        routerLink: '/monster-library',
                         routerParams: 3,
                         class: 'glyphicon glyphicon-th-list'
                     }
                 ]);
-                this.prevCategory = 'monster';
+                this.prevCategory = 'monster-library';
                 break;
             }
 
@@ -61,8 +61,8 @@ export class NavMenuService implements OnInit {
     private setHomeItems() {
         this.$menuItems.next([
             {
-                name: 'Monsters',
-                routerLink: '/monster',
+                name: 'Monsters Library',
+                routerLink: '/monster-library',
                 class: 'glyphicon glyphicon-education'
             },
             {
