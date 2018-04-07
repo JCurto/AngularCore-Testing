@@ -3,12 +3,14 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
-    template: '{{monsterId}}'
+    templateUrl: './monster-detail.component.html',
+    styleUrls: ['./monster-detail.component.scss']
 })
 export class MonsterDetailComponent implements OnInit, OnDestroy {
 
     private subscription: ISubscription;
     public monsterId: string | null;
+    public monsters: MonsterDetail[];
 
     constructor(
         private route: ActivatedRoute
@@ -19,11 +21,15 @@ export class MonsterDetailComponent implements OnInit, OnDestroy {
          * However, it is good practice.
          */
         this.subscription =
-            this.route.paramMap.subscribe((params: ParamMap) => this.monsterId = params.get('id'));
-        console.log('Detail OnInit');
+            this.route.paramMap.subscribe((params: ParamMap) => this.monsters = [{ name: 'Argla', id: params.get('id') }]);
     }
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
+}
+
+interface MonsterDetail {
+    name: string,
+    id: string | null
 }

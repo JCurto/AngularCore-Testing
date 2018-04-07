@@ -1,0 +1,25 @@
+li {
+    list-style-type: none;
+}
+
+.fadeStyle div {
+    opacity: 0;
+    animation: fadeIn 0.5s linear forwards;
+}
+
+.fadeStyle * {
+    position: relative;
+}
+
+@keyframes fadeIn {
+    0% { left: 50px; opacity: 0; }
+    50% { left: 0; }
+    75% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@for $i from 1 through 25 {
+    .fadeStyle div:nth-child(#{$i}) {
+        animation-delay: (.1s * ($i - 1));
+    }
+}
