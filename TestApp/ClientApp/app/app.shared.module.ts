@@ -10,10 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { MonsterLibraryModule } from './components/monster-library/monster-library.module'
 
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { NavMenuService } from './components/navmenu/navmenu.service';
 import { HomeComponent } from './components/home/home.component';
 
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
+
+import { NavMenuService } from './services/nav-menu.service';
 
 @NgModule({
     declarations: [

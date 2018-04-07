@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavMenuService } from '../navmenu/navmenu.service';
+import { NavMenuService } from '../../services/nav-menu.service';
 
 @Component({
     selector: 'home',

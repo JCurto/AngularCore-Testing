@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NavMenuService, MenuItem } from './navmenu.service';
+import { NavMenuService, MenuItem } from '../../services/nav-menu.service';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 

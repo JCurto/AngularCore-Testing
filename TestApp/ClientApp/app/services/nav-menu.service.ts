@@ -29,15 +29,15 @@ export class NavMenuService implements OnInit {
                         class: 'glyphicon glyphicon-home'
                     },
                     {
-                        name: 'Item 1',
+                        name: 'Ancient Artillery',
                         routerLink: '/monster-library',
-                        routerParams: 1,
+                        routerParams: 'ancient-artillery',
                         class: 'glyphicon glyphicon-th-list'
                     },
                     {
-                        name: 'Item 2',
+                        name: 'Bandit Archer',
                         routerLink: '/monster-library',
-                        routerParams: 2,
+                        routerParams: 'bandit-archer',
                         class: 'glyphicon glyphicon-th-list'
                     },
                     {
