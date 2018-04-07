@@ -14,7 +14,6 @@ import { NavMenuService } from './components/navmenu/navmenu.service';
 import { HomeComponent } from './components/home/home.component';
 
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +21,6 @@ import { CounterComponent } from './components/counter/counter.component';
         , NavMenuComponent
         , HomeComponent
 
-        , CounterComponent
         , FetchDataComponent
     ],
     imports: [
