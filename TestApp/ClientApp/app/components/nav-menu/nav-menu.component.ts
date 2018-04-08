@@ -5,8 +5,8 @@ import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'nav-menu',
-    templateUrl: './navmenu.component.html',
-    styleUrls: ['./navmenu.component.scss']
+    templateUrl: './nav-menu.component.html',
+    styleUrls: ['./nav-menu.component.scss']
 })
 export class NavMenuComponent implements OnInit, OnDestroy {
     public menuItems: MenuItem[];

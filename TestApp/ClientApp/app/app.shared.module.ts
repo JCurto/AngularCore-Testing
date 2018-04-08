@@ -9,7 +9,7 @@ import { AppComponent } from './components/app/app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MonsterLibraryModule } from './components/monster-library/monster-library.module'
 
-import { NavMenuComponent } from './components/navmenu/navmenu.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
 
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
