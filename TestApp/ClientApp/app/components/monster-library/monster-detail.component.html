@@ -1,10 +1,14 @@
 <div class='fadeStyle'>
     <ul>
         <li *ngFor="let monsterDetail of monsterDetails">
-            <div>Name: {{ monsterDetail.name }}</div>
-            <div>Id: {{ monsterDetail.id }}</div>
-            <div>Stats:</div>
-            <img [src]="loadImage(monsterDetail.id)"/>
+            <div>
+                <div>Name: {{ monsterDetail.name }}</div>
+                <div>Id: {{ monsterDetail.id }}</div>
+                <div>Stats:</div>
+                <div>
+                    <img [src]="loadImage(monsterDetail.id)" />
+                </div>
+            </div>
         </li>
     </ul>
 </div>
