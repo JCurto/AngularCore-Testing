@@ -1,81 +1,34 @@
 ﻿import 'rxjs/add/observable/of';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
-export class NavMenuService implements OnInit {
+export class NavMenuService {
     private prevCategory: string;
     public $menuItems = new Subject<MenuItem[]>();
 
     constructor() { }
 
-    public setItems(linkedCategory?: string): void {
-        if (linkedCategory === undefined) {
+    public setNextItems(nextCategory: string, nextItems: MenuItem[], backCategory?: string, backCategoryName?: string): void {
+        if (nextCategory === undefined) {
             return;
-        } else if (linkedCategory === this.prevCategory){
-            return;
-        } else if (linkedCategory === 'home') {
-            this.setHomeItems();
+        } else if (nextCategory === this.prevCategory) {
             return;
         }
 
-        switch (linkedCategory) {
-            case 'monster-library': {
-                this.$menuItems.next([
-                    {
-                        name: '<< Home',
-                        routerLink: '/home',
-                        class: 'glyphicon glyphicon-home'
-                    },
-                    {
-                        name: 'Ancient Artillery',
-                        routerLink: '/monster-library',
-                        routerParams: 'ancient-artillery',
-                        class: 'glyphicon glyphicon-th-list'
-                    },
-                    {
-                        name: 'Bandit Archer',
-                        routerLink: '/monster-library',
-                        routerParams: 'bandit-archer',
-                        class: 'glyphicon glyphicon-th-list'
-                    },
-                    {
-                        name: 'Item 3',
-                        routerLink: '/monster-library',
-                        routerParams: 3,
-                        class: 'glyphicon glyphicon-th-list'
-                    }
-                ]);
-                this.prevCategory = 'monster-library';
-                break;
-            }
+        if (backCategory !== undefined) {
+            const backRoute: MenuItem = {
+                name: '' + backCategoryName,
+                routerLink: '/' + backCategory,
+                class: 'glyphicon glyphicon-arrow-left'
+            };
 
-            default: {
-                this.setHomeItems();
-                break;
-            }
+            nextItems.unshift(backRoute);
         }
-    }
-
-    private setHomeItems() {
-        this.$menuItems.next([
-            {
-                name: 'Monster Library',
-                routerLink: '/monster-library',
-                class: 'glyphicon glyphicon-education'
-            },
-            {
-                name: 'Fetch Data',
-                routerLink: '/fetch-data',
-                class: 'glyphicon glyphicon-th-list'
-            }
-        ]);
-        this.prevCategory = 'home';
-    }
-
-    ngOnInit() {
-        this.setHomeItems();
+        
+        this.$menuItems.next(nextItems);
+        this.prevCategory = nextCategory;
     }
 }
 

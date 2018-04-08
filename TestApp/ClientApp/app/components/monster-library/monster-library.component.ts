@@ -1,5 +1,6 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { NavMenuService } from '../../services/nav-menu.service';
+﻿import { Component, OnInit, Inject } from '@angular/core';
+import { Http } from '@angular/http';
+import { NavMenuService, MenuItem } from '../../services/nav-menu.service';
 
 @Component({
     template: `
@@ -8,13 +9,41 @@ import { NavMenuService } from '../../services/nav-menu.service';
     `
 })
 export class MonsterLibraryComponent implements OnInit {
+    private baseUrl: string;
+    private monsterList: MonsterListItem[];
+    private menuItemList: MenuItem[];
 
     constructor(
-        private navMenuService: NavMenuService
-    ) { }
-
+        private http: Http,
+        private navMenuService: NavMenuService,
+        @Inject('BASE_URL') baseUrl: string
+    ) {
+        this.baseUrl = baseUrl;
+    }
+    
     ngOnInit() {
-        this.navMenuService.setItems('monster-library');
+        this.http.get(this.baseUrl + 'api/MonsterData').subscribe(result => {
+            this.monsterList = result.json() as MonsterListItem[];
+            this.menuItemList = this.monsterList.map(this.mapList);
+
+            this.navMenuService.setNextItems('monster-library', this.menuItemList, 'home', 'Home');
+        }, error => console.error(error));
     }
 
+    private mapList(listItem: MonsterListItem): MenuItem {
+        const menuItem: MenuItem = {
+            routerLink: '/monster-library',
+            name: listItem.name,
+            class: 'glyphicon glyphicon-th-list',
+            routerParams: listItem.id
+        };
+
+        return menuItem;
+    }
+}
+
+
+interface MonsterListItem {
+    id: string,
+    name: string
 }

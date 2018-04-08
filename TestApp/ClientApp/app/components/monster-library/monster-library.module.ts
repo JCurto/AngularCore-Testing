@@ -1,5 +1,6 @@
 ﻿import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 import { MonsterLibraryComponent } from './monster-library.component';
 import { MonsterLibraryHomeComponent } from './monster-library-home.component';
@@ -9,13 +10,14 @@ import { MonsterLibraryRoutingModule } from './monster-library-routing.module';
 
 @NgModule({
     imports: [
-        CommonModule,
-        MonsterLibraryRoutingModule
+        CommonModule
+      , HttpModule
+      , MonsterLibraryRoutingModule
     ],
     declarations: [
-        MonsterLibraryComponent,
-        MonsterLibraryHomeComponent,
-        MonsterDetailComponent
+        MonsterLibraryComponent
+      , MonsterLibraryHomeComponent
+      , MonsterDetailComponent
     ]
 })
 export class MonsterLibraryModule { }
