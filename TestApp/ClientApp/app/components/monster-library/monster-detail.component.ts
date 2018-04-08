@@ -13,11 +13,17 @@ export class MonsterDetailComponent implements OnInit, OnDestroy {
     public monsterId: string | null;
     public monsterDetails: MonsterDetail[];
 
+    public monsterImages = require.context('../../assets', true);
+
     constructor(
         private http: Http,
         private route: ActivatedRoute,
         @Inject('BASE_URL') private baseUrl: string
     ) { }
+
+    public loadImage(id: string): string {
+        return this.monsterImages('./' + this.monsterDetails[0].id + '.jpg');
+    }
 
     ngOnInit() {
         /* For ActivatedRoute, the subscription doesn't technically need to be tracked and unsubscribed from.

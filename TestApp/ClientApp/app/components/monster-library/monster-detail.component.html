@@ -4,6 +4,7 @@
             <div>Name: {{ monsterDetail.name }}</div>
             <div>Id: {{ monsterDetail.id }}</div>
             <div>Stats:</div>
+            <img [src]="loadImage(monsterDetail.id)"/>
         </li>
     </ul>
 </div>
