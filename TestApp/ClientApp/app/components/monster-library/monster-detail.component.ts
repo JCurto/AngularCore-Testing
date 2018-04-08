@@ -1,4 +1,5 @@
-﻿import { Component, OnInit, OnDestroy } from '@angular/core';
+﻿import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+import { Http } from '@angular/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ISubscription } from 'rxjs/Subscription';
 
@@ -10,10 +11,12 @@ export class MonsterDetailComponent implements OnInit, OnDestroy {
 
     private subscription: ISubscription;
     public monsterId: string | null;
-    public monsters: MonsterDetail[];
+    public monsterDetails: MonsterDetail[];
 
     constructor(
-        private route: ActivatedRoute
+        private http: Http,
+        private route: ActivatedRoute,
+        @Inject('BASE_URL') private baseUrl: string
     ) { }
 
     ngOnInit() {
@@ -21,7 +24,11 @@ export class MonsterDetailComponent implements OnInit, OnDestroy {
          * However, it is good practice.
          */
         this.subscription =
-            this.route.paramMap.subscribe((params: ParamMap) => this.monsters = [{ name: 'Argla', id: params.get('id') }]);
+            this.route.paramMap.subscribe((params: ParamMap) => {
+                this.http.get(this.baseUrl + 'api/MonsterData/' + params.get('id')).subscribe(result => {
+                    this.monsterDetails = [result.json() as MonsterDetail];
+                })
+            });
     }
 
     ngOnDestroy() {
@@ -29,7 +36,25 @@ export class MonsterDetailComponent implements OnInit, OnDestroy {
     }
 }
 
+
 interface MonsterDetail {
-    name: string,
-    id: string | null
+    id: string
+    , name: string
+    , race: string
+    , class: string
+    , stats: MonsterLevel[]
+}
+
+interface MonsterLevel {
+    level: number
+    , normal: MonsterStats
+    , elite: MonsterStats
+}
+
+interface MonsterStats {
+    health: number
+    , move: number
+    , attack: number
+    , range: number
+    , attributes: string[]
 }

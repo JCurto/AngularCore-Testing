@@ -9,17 +9,14 @@ import { NavMenuService, MenuItem } from '../../services/nav-menu.service';
     `
 })
 export class MonsterLibraryComponent implements OnInit {
-    private baseUrl: string;
     private monsterList: MonsterListItem[];
     private menuItemList: MenuItem[];
 
     constructor(
         private http: Http,
         private navMenuService: NavMenuService,
-        @Inject('BASE_URL') baseUrl: string
-    ) {
-        this.baseUrl = baseUrl;
-    }
+        @Inject('BASE_URL') private baseUrl: string
+    ) { }
     
     ngOnInit() {
         this.http.get(this.baseUrl + 'api/MonsterData').subscribe(result => {
