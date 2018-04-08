@@ -3,7 +3,7 @@
     "ancient-artillery": {
       "id": "ancient-artillery",
       "name": "Ancient Artillery",
-      "race": "--",
+      "race": "Construct",
       "class": "Ancient Artillery",
       "stats": [
         {
@@ -648,7 +648,7 @@
     "cave-bear": {
       "id": "cave-bear",
       "name": "Cave Bear",
-      "race": "Bear",
+      "race": "Beast",
       "class": "Cave Bear",
       "stats": [
         {
@@ -1320,7 +1320,7 @@
     "deep-terror": {
       "id": "deep-terror",
       "name": "Deep Terror",
-      "race": "--",
+      "race": "Horror",
       "class": "Deep Terror",
       "stats": [
         {
@@ -2213,7 +2213,7 @@
     "giant-viper": {
       "id": "giant-viper",
       "name": "Giant Viper",
-      "race": "--",
+      "race": "Beast",
       "class": "Giant Viper",
       "stats": [
         {
@@ -2561,7 +2561,7 @@
     "hound": {
       "id": "hound",
       "name": "Hound",
-      "race": "--",
+      "race": "Beast",
       "class": "Hound",
       "stats": [
         {
@@ -3723,7 +3723,7 @@
     "lurker": {
       "id": "lurker",
       "name": "Lurker",
-      "race": "--",
+      "race": "Horror",
       "class": "Lurker",
       "stats": [
         {
@@ -3925,7 +3925,7 @@
     "ooze": {
       "id": "ooze",
       "name": "Ooze",
-      "race": "--",
+      "race": "Horror",
       "class": "Ooze",
       "stats": [
         {
@@ -4992,7 +4992,7 @@
     "stone-golem": {
       "id": "stone-golem",
       "name": "Stone Golem",
-      "race": "--",
+      "race": "Construct",
       "class": "Stone Golem",
       "stats": [
         {
