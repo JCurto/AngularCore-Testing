@@ -2386,7 +2386,7 @@
         }
       ]
     },
-    "harrower-infester": {
+    "harrower-infestor": {
       "id": "harrower-infestor",
       "name": "Harrower Infestor",
       "race": "Harrower",
